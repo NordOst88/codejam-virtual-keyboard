@@ -1,1 +1,1 @@
-# [Codejam "Virtual keyboard"](https://github.com/NordOst88/codejam-virtual-keyboard)
+# [Codejam "Virtual keyboard"](https://nordost88.github.io/codejam-virtual-keyboard/)
