@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable object-curly-newline */
 import '../scss/style.scss';
 
