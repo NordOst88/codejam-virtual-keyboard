@@ -53,6 +53,7 @@ const keys = [
     { code: 'BracketLeft', en: '[', altEn: '{', ru: 'х', altRu: 'Х' },
     { code: 'BracketRight', en: ']', altEn: '}', ru: 'ъ', altRu: 'Ъ' },
     { code: 'Backslash', en: '\\', altEn: '|', ru: '\\', altRu: '/' },
+    { code: 'Delete', en: 'Del', altEn: 'Del', ru: 'Del', altRu: 'Del' },
   ],
   [
     { code: 'CapsLock', en: 'CapsLock', altEn: 'CapsLock', ru: 'CapsLock', altRu: 'CapsLock' },
@@ -163,7 +164,23 @@ function addSymbol(keyCode) {
       }
       case 'Backspace': {
         symbol = '';
-        textarea.value = textarea.value.slice(0, textarea.value.length - 1);
+        const { value: val, selectionStart: start, selectionEnd: end } = textarea;
+        if (start !== end) {
+          textarea.value = `${val.slice(0, start)}${val.slice(end)}`;
+          textarea.selectionStart = start;
+        } else if (start !== 0) {
+          textarea.value = `${val.slice(0, start - 1)}${val.slice(start)}`;
+          textarea.selectionEnd = end - 1;
+        } else {
+          textarea.selectionStart = start;
+        }
+        break;
+      }
+      case 'Delete': {
+        symbol = '';
+        const { value: val, selectionStart: start, selectionEnd: end } = textarea;
+        textarea.value = `${val.slice(0, start)}${val.slice(start + 1)}`;
+        textarea.selectionEnd = end;
         break;
       }
       default: {
