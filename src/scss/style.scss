@@ -1,0 +1,76 @@
+$background-color: #00695b;
+$key-color: #2e8479;
+$alt-key-color: #2c9e91;
+$selected-key-color:#4cb6ac;
+$font-color: #fff;
+$alt-font-color: #b8d5d1;
+
+* {
+    box-sizing: border-box;
+}
+.wrapper {
+    width: 700px;
+    margin: 0 auto;
+}
+.textarea {
+    width: 100%;
+    height: 200px;
+}
+.keyboard {
+    width: 100%;
+    padding: 5px 5px 1px 1px;
+    background-color: $background-color;
+    border-radius: 10px;
+}
+.row {
+    display: flex;
+    margin-bottom: 8px;
+}
+.key {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: $key-color;
+    margin-left: 6px;
+    color: $font-color;
+}
+.key:hover {
+    // background: linear-gradient($key-color, $alt-key-color);
+    background-color: $selected-key-color;
+    color: $font-color;
+    cursor: pointer;
+}
+.backspace, .capslock, .shiftleft {
+    width: 92px;
+}
+.enter, .shiftright {
+    width: 84px;
+}
+.tab {
+    width: 50px;
+}
+.delete {
+    width: 44px;
+}
+.space {
+    width: 330px;
+}
+.backspace, .capslock, .shiftleft, .enter, .shiftright,
+.tab, .delete, .space, .controlleft, .controlright, .metaleft,
+.altleft, .altright, .arrowup, .arrowleft, .arrowdown, .arrowright {
+    font-weight: 600;
+    background-color: $alt-key-color;
+    color: $alt-font-color;
+}
+.pressed {
+    background: linear-gradient($key-color, $alt-key-color);
+    transform: translate(3px, 3px);
+    transition: 0.2s ease-in-out;
+}
+.description {
+    margin: 10px auto;
+    text-align: center;
+}
